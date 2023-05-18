@@ -31,7 +31,10 @@
 
 - name: Install nginx
   ansible.builtin.yum:
-    name: nginx
+    name: httpd
     state: installed
-  register: out
 
+- name: Recursively old documents
+  ansible.builtin.file:
+    path: /usr/share/nginx/html/
+    state: absent
