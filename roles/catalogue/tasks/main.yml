@@ -54,7 +54,7 @@
     state: installed
 
 - name: load schema
-  ansible.builtin.shell: mongo
-    --host: mongodb-dev.davedevops.tech
+  ansible.builtin.shell:
+    login_host: mongodb-dev.davedevops.tech
     file: "/app/schema/catalogue.js"
     idempotent: yes
