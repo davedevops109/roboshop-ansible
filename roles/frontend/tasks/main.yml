@@ -29,17 +29,9 @@
 #status_check
 
 
-#- name: Install nginx
-#  ansible.builtin.yum:
-#    name: nginx
-#    state: installed
-#  register: out
-
-- name: This task will always make changes to the system
-  ansible.builtin.shell: uptime
+- name: Install nginx
+  ansible.builtin.yum:
+    name: nginx
+    state: installed
   register: out
-  check_mode: no
 
-- name: out
-  debug:
-    msg: "{{out}}"
