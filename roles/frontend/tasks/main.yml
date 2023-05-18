@@ -1,11 +1,4 @@
-#print_head "Install Nginx"
-#yum install nginx -y &>>${LOG}
-#status_check
-#
-#print_head "Remove nginx old content"
-#rm -rf /usr/share/nginx/html/* &>>${LOG}
-#status_check
-#
+
 #print_head "download frontend content"
 #curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.zip &>>${LOG}
 #status_check
@@ -43,3 +36,9 @@
   ansible.builtin.file:
     path: /usr/share/nginx/html/
     state : directory
+
+- name: download frontend app content
+  ansible.builtin.unarchive:
+    src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip
+    dest: /usr/share/nginx/html/
+    remote_src: yes
