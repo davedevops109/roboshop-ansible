@@ -15,10 +15,10 @@
     path: /app
     state: absent
 
-- name : create app directory
+- name: create app directory
   ansible.builtin.file:
     path: /app
-    state : directory
+    state: directory
 
 - name: download catalogue app content
   ansible.builtin.unarchive:
