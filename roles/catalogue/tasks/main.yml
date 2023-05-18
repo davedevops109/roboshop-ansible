@@ -55,4 +55,3 @@
 
 - name: load schema
   ansible.builtin.shell: mongo --host mongodb-dev.davedevops.tech < /app/schema/catalogue.js
-
