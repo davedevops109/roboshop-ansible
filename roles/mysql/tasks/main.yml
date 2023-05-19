@@ -11,7 +11,7 @@
     name: mysql-community-server
     state: installed
 
-- name: start mysql service
+- name: Start MySQL service
   ansible builtin.systemd:
     name: mysqld
     state: restarted
