@@ -19,6 +19,7 @@
 
 - name: reset mysql default password
   ansible.builtin.shell: mysql_server_installation --set-root-pass {{root_mysql_password}}
+  ignore_errors: yes
 
 
 
