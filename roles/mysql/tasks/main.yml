@@ -1,5 +1,5 @@
 - name: disable mysql 8 version
-  ansible.builtin.shell: dnf module disable mysql -y
+  ansible.builtin.shell: dnf module disable mysql
 
 - name: copy mysql repo file
   ansible.builtin.copy:
