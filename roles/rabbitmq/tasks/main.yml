@@ -1,0 +1,44 @@
+#print_head "adding roboshop add_user"
+#rabbitmqctl list_users | grep roboshop &>>${LOG}
+#if [ $? -ne 0 ]; then
+#rabbitmqctl add_user roboshop ${roboshop_rabbitmq_password} &>>${LOG}
+#fi
+#status_check
+#
+#print_head "set user for roboshop administrator"
+#rabbitmqctl set_user_tags roboshop administrator &>>${LOG}
+#status_check
+#
+#print_head "adding set_permissions"
+#rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*" &>>${LOG}
+#status_check
+
+- name: configuring repos
+  ansible.builtin.shell: curl -s {{ item }} | bash
+  loop:
+    - https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh
+    - https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh
+
+- name: Install Erlang & Rabbitmq
+  ansible.builtin.yum:
+    name:
+      - erlang
+      - rabbitmq-server
+    state: installed
+
+- name: start rabbitmq server
+  ansible.builtin.systemd:
+    name: rabbitmq-server
+    state: restarted
+    enabled: yes
+
+- name: Add application user
+  community.rabbitmq.rabbitmq_user:
+    user: roboshop
+    password: {{roboshop_rabbitmq_password}}
+    vhost: /
+    configure_priv: .*
+    read_priv: .*
+    write_priv: .*
+    state: present
+    tags: administrator
