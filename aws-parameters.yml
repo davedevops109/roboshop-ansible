@@ -1,5 +1,5 @@
 - name: create parameters
-  hosts: localhosts
+  hosts: localhost
   connection: local
   tasks:
     - name: Create or update key/value pair in AWS SSM parameter store
@@ -8,4 +8,4 @@
         value: "{{ item.value }}"
         region: us-east-1
       loop:
-        - {name: "dev.cart.REDIS_HOST", value: redis-dev.davedevops.tech"}
+        - {name: "dev.cart.REDIS_HOST", value: "redis-dev.davedevops.tech"}
