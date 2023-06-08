@@ -16,6 +16,7 @@
         - {name: "dev.frontend.CART_URL", value: "http://cart-dev.davedevops.tech:8080/"}
         - {name: "dev.frontend.USER_URL", value: "http://user-dev.davedevops.tech:8080/"}
         - {name: "dev.frontend.PAYMENT_URL", value: "http://payment-dev.davedevops.tech:8080/"}
+        - {name: "dev.frontend.SHIPPING_URL", value: "http://shipping-dev.davedevops.tech:8080/"}
         - {name: "dev.payment.CART_HOST", value: "cart-dev.davedevops.tech"}
         - {name: "dev.payment.USER_HOST", value: "user-dev.davedevops.tech"}
         - {name: "dev.payment.CART_PORT", value: "8080"}
