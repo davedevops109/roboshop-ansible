@@ -32,7 +32,7 @@
 
     - name: Create secrets
       community.aws.aws_ssm_parameter_store:
-        name: "{{ item.name}} "
+        name: "{{ item.name }} "
         value: "{{ item.value }}"
         region: us-east-1
         string_type: "SecureString"
