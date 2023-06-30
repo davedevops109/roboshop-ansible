@@ -9,6 +9,9 @@
     state: installed
 
 - name: load schema
-  ansible.builtin.shell: mongo --host mongodb-dev.davedevops.tech < /app/schema/{{component}}.js
+  community.mongodb,mongodb_shell:
+    login_hosts: mongodb-dev.davedevops.tech
+    file: "/app/schema/{{component}}.js"
+    idempotent: yes
 
 
