@@ -10,7 +10,7 @@
 
 - name: load schema
   community.mongodb,mongodb_shell:
-    login_hosts: mongodb-dev.davedevops.tech
+    login_host: mongodb-dev.davedevops.tech
     file: "/app/schema/{{component}}.js"
     idempotent: yes
 
