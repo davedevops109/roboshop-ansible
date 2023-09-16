@@ -30,6 +30,8 @@
         - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.davedevops.tech:27017/users"}
         - {name: "dev.user.REDIS_HOST", value: "redis-dev.davedevops.tech"}
 
+  ## passwords should never in REPOS, those should be created manually, but for lab purpose creating manually
+
     - name: Create or update key/value pair in AWS SSM parameter store
       community.aws.aws_ssm_parameter_store:
         name: "{{ item.name }}"
