@@ -7,5 +7,7 @@ groups:
         labels:
           severity: critical
         annotations:
+  {% raw %}
           summary: "Instance Down - [{{ $label.name}}]"
           description: "Instance Down - [{{ $label.name}}]"
+  {% endraw %}
